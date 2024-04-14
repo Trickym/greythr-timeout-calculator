@@ -1,6 +1,6 @@
 # Greythr Timeout Calculator
 
-Greythr Timeout Calculator is a specialized Chrome extension crafted to streamline employee outtime calculation within Greythr, optimizing the workforce management process. It can be used by K12 Techno Services Pvt. Ltd. employees only.
+Greythr Timeout Calculator is a specialized Chrome extension crafted to streamline employee outtime calculation within Greythr, optimizing the workforce management process. It can be used only by the employees of the companies that uses Greythr HRMS.
 
 ## Features
 
