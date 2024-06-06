@@ -43,7 +43,10 @@ function App() {
         let todayDate = moment().startOf("day");
         let isToday = selectedDateMoment.isSame(todayDate, "day");
         if (!isToday) {
-          localStorage.clear();
+          localStorage.removeItem("date");
+          localStorage.removeItem("punch_out_time");
+          localStorage.removeItem("no_punch_in");
+          localStorage.removeItem("text");
         }
       }
       chrome.runtime.sendMessage(
@@ -63,7 +66,12 @@ function App() {
           if (response && response?.in_time) {
             let inputTime = response?.in_time;
             const parsedTime = moment(inputTime, "hh:mm:ss a");
-            const calculatedTime = parsedTime.add({ hours: 8, minutes: 30 });
+            const hourOfWork = Number(workingHours?.split(":")[0]);
+            const minutesOfWork = Number(workingHours?.split(":")[1]);
+            const calculatedTime = parsedTime.add({
+              hours: hourOfWork,
+              minutes: minutesOfWork,
+            });
             const result = calculatedTime.format("hh:mm:ss a");
             const workingHoursCalculated = moment(
               `${workingHours} pm`,
