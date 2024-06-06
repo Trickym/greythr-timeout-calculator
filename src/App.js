@@ -17,7 +17,7 @@ function App() {
     localStorage.getItem("workingHours")
   );
   const [localOn, setLocalOn] = useState(false);
-  const [inputHour, setInputHour] = useState(7);
+  const [inputHour, setInputHour] = useState(8);
   const [inputMinute, setInputMinute] = useState(30);
   function handleChange(e) {
     let value = Number(e.target.value);
@@ -62,7 +62,6 @@ function App() {
           let selectedDateMoment = moment(selectedDate, "YYYY-MM-DD");
           let todayDate = moment().startOf("day");
           let isTodayDateSelected = selectedDateMoment.isSame(todayDate, "day");
-          console.log({ selectedDate, todayDate, isTodayDateSelected });
           if (response && response?.in_time) {
             let inputTime = response?.in_time;
             const parsedTime = moment(inputTime, "hh:mm:ss a");
@@ -231,8 +230,8 @@ function App() {
             {punchOutTime && (
               <>
                 <h2>{text}</h2>
-                <h2>{moment(date).format("DD MMM YYYY")}</h2>
-                <h3>{punchOutTime}</h3>
+                <h2>{punchOutTime}</h2>
+                <h3>{moment(date).format("DD MMM YYYY")}</h3>
                 {punchOutTime && <img src={busVector} alt="bus" />}
               </>
             )}
