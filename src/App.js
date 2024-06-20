@@ -163,6 +163,13 @@ function App() {
 
   return (
     <div className="popup">
+      <div className="help-button-container">
+        <a href="https://cfo7xjif6on.typeform.com/to/k2stwdAP" target="__blank">
+          <button class="help-button tooltip">
+            ?<span class="tooltiptext">Help</span>
+          </button>
+        </a>
+      </div>
       <img style={{ marginTop: "10px" }} src={Logo} height={30} alt="logo" />
       <>
         {!workingHours ? (
@@ -233,6 +240,30 @@ function App() {
                 <h2>{punchOutTime}</h2>
                 <h3>{moment(date).format("DD MMM YYYY")}</h3>
                 {punchOutTime && <img src={busVector} alt="bus" />}
+                {punchOutTime && (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      padding: "0px 10px",
+                    }}
+                  >
+                    <div className="" style={{ fontSize: "14px" }}>
+                      Your feedback is valuable 🙏
+                    </div>
+                    <div className="">
+                      <a
+                        href="https://chromewebstore.google.com/detail/greythr-timeout/penmagnhhlfjcjackdiblekoimhidbbg/reviews"
+                        target="__blank"
+                      >
+                        <button className="review-button">
+                          Write a review
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                )}
               </>
             )}
           </>

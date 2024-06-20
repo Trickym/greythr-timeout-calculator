@@ -3,6 +3,7 @@
   width: 350px;
   color: #394656;
   text-align: center;
+  position: relative;
 }
 
 .popup img{
@@ -90,4 +91,77 @@ input[type="number"] {
 
 .cssbuttons-io-button:active .icon {
   transform: scale(0.95);
+}
+
+.review-button{
+  background: #5373E3;
+  padding: 5px 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.help-button{
+  background: #fff;
+  color: #5373E3;
+  outline: 3px solid #5373E3;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: none;
+  display: inline-block;
+  
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-weight: 400;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    left: -80%; 
+    margin-top: -16px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0; /* Adjust the arrow to be on the left side */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #555 transparent transparent; /* Change the border colors to create a left-facing arrow */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.help-button-container{
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
