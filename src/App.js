@@ -3,6 +3,7 @@ import busVector from "./greythr_image1.svg";
 import gotoAttendance from "./go_to_attendance.png";
 import noPunch from "./no_punch.png";
 import Logo from "./greytip_logo.svg";
+import Maintenance from "./maintenance.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import moment from "moment";
@@ -51,6 +52,7 @@ function App() {
       }
       chrome.runtime.sendMessage(
         "cbkjckmlkdilmgahkaiaegigmfkfgbcg",
+        "penkpmpohaldnemppbclfkiognbanfef",
         { action: "fetchElement" },
         (response) => {
           console.log(response);
@@ -160,6 +162,39 @@ function App() {
     setWorkingHours(time);
     localStorage.setItem("workingHours", time);
   }
+
+  return (
+    <div className="popup" style={{ textAlign: "center" }}>
+      <img style={{ marginTop: "10px" }} src={Logo} height={30} alt="logo" />
+      <img
+        src={Maintenance}
+        alt="Under Maintenance"
+        style={{ width: "100%" }}
+      />
+      <h2 style={{ margin: 0 }}>Extension Under Maintenance</h2>
+      <p
+        style={{ fontSize: "12px", color: "#7f8fa4", margin: 0, marginTop: 5 }}
+      >
+        We are currently performing maintenance.
+      </p>
+      <p
+        style={{ fontSize: "12px", color: "#7f8fa4", margin: 0, marginTop: 5 }}
+      >
+        The extension will be back soon.
+      </p>
+      <p
+        style={{
+          fontSize: "12px",
+          color: "#7f8fa4",
+          margin: 0,
+          marginTop: 5,
+          marginBottom: 10,
+        }}
+      >
+        Thank you for your patience! 🙏
+      </p>
+    </div>
+  );
 
   return (
     <div className="popup">
