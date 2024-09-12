@@ -52,13 +52,12 @@ function App() {
       }
       chrome.runtime.sendMessage(
         "cbkjckmlkdilmgahkaiaegigmfkfgbcg",
-        "penkpmpohaldnemppbclfkiognbanfef",
         { action: "fetchElement" },
         (response) => {
-          console.log(response);
-          let month = getMonthByName(response?.presentMonth?.split(" ")[0]);
-          let year = response?.presentMonth?.split(" ")[1];
-          let day = response?.day;
+          let incomingDate = moment(response?.incomingDate);
+          let month = incomingDate.month() + 1;
+          let year = incomingDate.year();
+          let day = incomingDate.date();
           let selectedDate = `${year}-${month}-${day}`;
           setDate(selectedDate);
           let selectedDateMoment = moment(selectedDate, "YYYY-MM-DD");
@@ -163,38 +162,38 @@ function App() {
     localStorage.setItem("workingHours", time);
   }
 
-  return (
-    <div className="popup" style={{ textAlign: "center" }}>
-      <img style={{ marginTop: "10px" }} src={Logo} height={30} alt="logo" />
-      <img
-        src={Maintenance}
-        alt="Under Maintenance"
-        style={{ width: "100%" }}
-      />
-      <h2 style={{ margin: 0 }}>Extension Under Maintenance</h2>
-      <p
-        style={{ fontSize: "12px", color: "#7f8fa4", margin: 0, marginTop: 5 }}
-      >
-        We are currently performing maintenance.
-      </p>
-      <p
-        style={{ fontSize: "12px", color: "#7f8fa4", margin: 0, marginTop: 5 }}
-      >
-        The extension will be back soon.
-      </p>
-      <p
-        style={{
-          fontSize: "12px",
-          color: "#7f8fa4",
-          margin: 0,
-          marginTop: 5,
-          marginBottom: 10,
-        }}
-      >
-        Thank you for your patience! 🙏
-      </p>
-    </div>
-  );
+  // return (
+  //   <div className="popup" style={{ textAlign: "center" }}>
+  //     <img style={{ marginTop: "10px" }} src={Logo} height={30} alt="logo" />
+  //     <img
+  //       src={Maintenance}
+  //       alt="Under Maintenance"
+  //       style={{ width: "100%" }}
+  //     />
+  //     <h2 style={{ margin: 0 }}>Extension Under Maintenance</h2>
+  //     <p
+  //       style={{ fontSize: "12px", color: "#7f8fa4", margin: 0, marginTop: 5 }}
+  //     >
+  //       We are currently performing maintenance.
+  //     </p>
+  //     <p
+  //       style={{ fontSize: "12px", color: "#7f8fa4", margin: 0, marginTop: 5 }}
+  //     >
+  //       The extension will be back soon.
+  //     </p>
+  //     <p
+  //       style={{
+  //         fontSize: "12px",
+  //         color: "#7f8fa4",
+  //         margin: 0,
+  //         marginTop: 5,
+  //         marginBottom: 10,
+  //       }}
+  //     >
+  //       Thank you for your patience! 🙏
+  //     </p>
+  //   </div>
+  // );
 
   return (
     <div className="popup">
